@@ -1,0 +1,57 @@
+﻿@model User
+
+
+<style>
+    .AddUser{
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        height: 100vh;
+        width: 100%;
+        flex-direction: column;
+        text-align:center;
+        overflow: hidden;
+        background-image: url(https://images.unsplash.com/photo-1701122651126-612199155676?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
+    }
+
+    .buttons {
+        width: 100%;
+        display: flex;
+        justify-content:space-between
+    }
+    label{
+        color:white
+    }
+    h2{
+        color:white
+    }
+    body{
+        margin: 0;
+    }
+</style>
+<div class="AddUser">
+    <h2>Add User</h2>
+    <form method="post" asp-action="AddUser" class="form">
+        <p>
+            <label asp-for="Name">First Name</label>    
+            <input type="text" asp-for="Name" placeholder="FirstName" class="form-control"/>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </p>
+        <p>
+            <label asp-for="SecondName">Second Name</label>
+            <input type="text" asp-for="SecondName" placeholder="SecondName" class="form-control" />
+            <span asp-validation-for="SecondName" class="text-danger"></span>
+        </p>
+        <p>
+            <label asp-for="Age">Age</label>
+            <input type="number" asp-for="Age" placeholder="Age" class="form-control" />
+            <span asp-validation-for="Age" class="text-danger"></span>
+        </p>
+        <div class="buttons">
+            <button type="submit" asp-action="ShowCompany" class="btn btn-primary">Companies</button>
+            <button type="submit" asp-action="AddUser" class="btn btn-primary">Add User</button>
+            <button type="submit" asp-action="AllUsers" class="btn btn-primary">All Users</button>
+        </div>
+    </form>
+   
+</div>

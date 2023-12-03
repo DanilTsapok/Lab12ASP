@@ -1,0 +1,80 @@
+﻿@model List<User>
+
+<style>
+    .table{
+      
+        width: 100px;
+    }
+
+    .btnSubmit{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        background-image: url(https://images.unsplash.com/photo-1701122651126-612199155676?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
+    }
+    h1{
+        color: white;
+        text-align: center;
+    }
+    td{
+        color: white;
+    }
+    body {
+        margin: 0;
+    }
+</style>
+<div class="content">
+
+    <table class="table  table-striped">
+        <h1>All Users</h1>
+        <thead>
+            <tr class="table-primary">
+                <th>id</th>
+                <th>Name</th>
+                <th>SecondName</th>
+                <th>Age</th>
+                <th>Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.Name</td>
+                    <td>@user.SecondName</td>
+                    <td>@user.Age</td>
+                    <td style="display:flex; gap:10px;">
+                        <form asp-controller="Home" asp-action="Edit" method="get" asp-route-id="@user.Id">
+                            <button type="submit" class="btn btn-primary">Edit</button>
+                        </form>
+                        <form asp-controller="Home" asp-action="Delete" method="post" asp-route-id="@user.Id">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+      
+
+
+
+    </table>
+    <form class="btnSubmit">
+        <button type="submit" class="btn btn-primary btnSubmit" asp-action="Index">Back</button>
+    </form>
+</div>
+
+
+
+

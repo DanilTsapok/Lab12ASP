@@ -1,0 +1,60 @@
+﻿@model List<Company>
+
+<style>
+    .table {
+        width: 100px;
+    }
+
+    .btnSubmit {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        background-image: url(https://images.unsplash.com/photo-1701122651126-612199155676?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
+    }
+
+    td {
+        color: white;
+    }
+    h1 {
+        color: white;
+        text-align: center
+    }
+</style>
+<div class="content">
+<table class="table table-striped-columns">
+    <h1>All Companies</h1>
+    <thead>
+            <tr class="table-primary">
+            <th>id</th>
+            <th>NameCompany</th>
+            <th>NumOfWorkers</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var company in Model)
+        {
+            <tr>
+                <td>@company.Id</td>
+                <td>@company.NameCompany</td>
+                <td>@company.NumOfWorkers</td>
+               
+            </tr>
+        }
+    </tbody>
+
+
+
+
+</table>
+<form class="btnSubmit">
+    <button type="submit" class="btn btn-primary btnSubmit" asp-action="Index">Back</button>
+</form>
+</div>
